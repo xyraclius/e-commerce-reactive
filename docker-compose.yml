@@ -1,0 +1,36 @@
+version: '3.8'
+
+networks:
+  udemy-network:
+    name: udemy-network
+    driver: bridge
+
+services:
+  mongo:
+    image: mongo:4.4.4
+    container_name: mongo
+    restart: always
+    command: mongod
+    environment:
+      TZ: Asia/Jakarta
+    ports:
+      - 27017:27017
+    volumes:
+      - C:\Users\NAFAWW\Desktop\nabil\mongodb:/data/db
+    networks:
+      - udemy-network
+
+  mysql:
+    image: mysql:8.0.25
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: ecommerce
+      MYSQL_ROOT_PASSWORD: udemy
+      TZ: Asia/Jakarta
+    ports:
+      - 3306:3306
+    volumes:
+      - C:\Users\NAFAWW\Desktop\nabil\mysql:/var/lib/mysql
+    networks:
+      - udemy-network
