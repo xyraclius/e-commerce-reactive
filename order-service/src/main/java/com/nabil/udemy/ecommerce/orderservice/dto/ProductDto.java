@@ -2,6 +2,8 @@ package com.nabil.udemy.ecommerce.orderservice.dto;
 
 import lombok.*;
 
+import java.io.Serializable;
+
 /**
  * @author Nabil Fawwaz Elqayyim
  */
@@ -11,7 +13,7 @@ import lombok.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductDto {
+public class ProductDto implements Serializable {
     private String id;
 
     private String description;

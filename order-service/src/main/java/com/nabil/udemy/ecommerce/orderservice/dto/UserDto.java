@@ -2,6 +2,8 @@ package com.nabil.udemy.ecommerce.orderservice.dto;
 
 import lombok.*;
 
+import java.io.Serializable;
+
 /**
  * @author Nabil Fawwaz Elqayyim
  */
@@ -11,7 +13,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDto {
+public class UserDto implements Serializable {
     private Integer id;
     private String name;
     private Integer balance;
