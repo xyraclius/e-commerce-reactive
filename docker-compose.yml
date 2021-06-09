@@ -7,7 +7,7 @@ networks:
 
 services:
   mongo:
-    image: mongo:4.4.4
+    image: mongo:4.4.6
     container_name: mongo
     restart: always
     command: mongod
@@ -16,7 +16,7 @@ services:
     ports:
       - 27017:27017
     volumes:
-      - C:\Users\NAFAWW\Desktop\nabil\mongodb:/data/db
+      - mongodata:/data/db
     networks:
       - udemy-network
 
@@ -31,6 +31,12 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - C:\Users\NAFAWW\Desktop\nabil\mysql:/var/lib/mysql
+      - mysqldata:/var/lib/mysql
     networks:
       - udemy-network
+
+volumes:
+  mongodata:
+    name: ecommerce_product_data
+  mysqldata:
+    name: ecommerce_users_data
