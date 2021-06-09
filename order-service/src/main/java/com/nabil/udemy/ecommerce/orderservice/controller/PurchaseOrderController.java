@@ -8,7 +8,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.reactive.function.client.WebClientRequestException;
 import org.springframework.web.reactive.function.client.WebClientResponseException;
 import reactor.core.publisher.Flux;
@@ -18,8 +19,8 @@ import reactor.core.publisher.Mono;
  * @author Nabil Fawwaz Elqayyim
  */
 
-@RestController
-@RequestMapping("order")
+//@RestController
+//@RequestMapping("order")
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class PurchaseOrderController {
 
@@ -27,7 +28,7 @@ public class PurchaseOrderController {
 
     private final OrderQueryService queryService;
 
-    @PostMapping
+    //    @PostMapping
     public Mono<ResponseEntity<PurchaseOrderResponseDto>> order(@RequestBody Mono<PurchaseOrderRequestDto> requestDtoMono) {
         return orderFulfillmentService.processOrder(requestDtoMono)
                 .map(ResponseEntity::ok)
@@ -35,7 +36,7 @@ public class PurchaseOrderController {
                 .onErrorReturn(WebClientRequestException.class, ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).build());
     }
 
-    @GetMapping("user/{userId}")
+    //    @GetMapping("user/{userId}")
     public Flux<PurchaseOrderResponseDto> getOrdersByUserId(@PathVariable int userId) {
         return queryService.getProductsByUserId(userId);
     }
