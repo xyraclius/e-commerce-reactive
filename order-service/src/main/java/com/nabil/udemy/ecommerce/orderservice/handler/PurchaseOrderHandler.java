@@ -22,12 +22,12 @@ public class PurchaseOrderHandler {
 
     private final OrderQueryService queryService;
 
+    private final ValidationHandler validationHandler;
+
     public Mono<ServerResponse> order(ServerRequest request) {
-        Mono<PurchaseOrderRequestDto> requestDtoMono = request.bodyToMono(PurchaseOrderRequestDto.class);
-        return ServerResponse.ok().body(orderFulfillmentService.processOrder(requestDtoMono), PurchaseOrderResponseDto.class);
-//                .map(ResponseEntity::ok)
-//                .onErrorReturn(WebClientResponseException.class, ResponseEntity.badRequest().build())
-//                .onErrorReturn(WebClientRequestException.class, ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).build());
+        Mono<PurchaseOrderRequestDto> purchaseOrderRequestDtoMono = request.bodyToMono(PurchaseOrderRequestDto.class);
+        Mono<PurchaseOrderRequestDto> purchaseOrderRequestDtoMonoValidated = validationHandler.requireValidBody(purchaseOrderRequestDtoMono);
+        return ServerResponse.ok().body(orderFulfillmentService.processOrder(purchaseOrderRequestDtoMonoValidated), PurchaseOrderResponseDto.class);
     }
 
     public Mono<ServerResponse> getOrdersByUserId(ServerRequest request) {

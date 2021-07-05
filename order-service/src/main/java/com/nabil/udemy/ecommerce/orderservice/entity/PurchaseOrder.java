@@ -12,8 +12,9 @@ import java.io.Serializable;
  * @author Nabil Fawwaz Elqayyim
  */
 
-@Data
 @Entity
+@Getter
+@Setter
 @ToString
 @Builder
 @NoArgsConstructor
