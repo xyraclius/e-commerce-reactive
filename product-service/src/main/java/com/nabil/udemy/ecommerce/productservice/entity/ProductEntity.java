@@ -7,7 +7,8 @@ import org.springframework.data.annotation.Id;
  * @author Nabil Fawwaz Elqayyim
  */
 
-@Data
+@Getter
+@Setter
 @Builder
 @ToString
 @NoArgsConstructor

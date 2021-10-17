@@ -1,9 +1,6 @@
 package com.nabil.udemy.ecommerce.orderservice.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
@@ -14,11 +11,14 @@ import java.io.Serializable;
  * @author Nabil Fawwaz Elqayyim
  */
 
-@Data
+@Getter
+@Setter
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
 public class PurchaseOrderRequestDto implements Serializable {
+
+    private static final long serialVersionUID = -6794147781926025376L;
 
     @NotNull(message = "User ID cannot null")
     @Min(message = "User ID is required", value = 1)

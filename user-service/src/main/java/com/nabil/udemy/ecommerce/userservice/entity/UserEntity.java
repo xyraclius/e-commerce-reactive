@@ -8,7 +8,8 @@ import org.springframework.data.relational.core.mapping.Table;
  * @author Nabil Fawwaz Elqayyim
  */
 
-@Data
+@Getter
+@Setter
 @ToString
 @Builder
 @NoArgsConstructor

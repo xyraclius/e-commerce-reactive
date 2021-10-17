@@ -6,7 +6,8 @@ import lombok.*;
  * @author Nabil Fawwaz Elqayyim
  */
 
-@Data
+@Getter
+@Setter
 @Builder
 @ToString
 @NoArgsConstructor

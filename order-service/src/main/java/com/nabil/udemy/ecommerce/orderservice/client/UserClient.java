@@ -1,6 +1,5 @@
 package com.nabil.udemy.ecommerce.orderservice.client;
 
-import com.nabil.udemy.ecommerce.orderservice.dto.ProductDto;
 import com.nabil.udemy.ecommerce.orderservice.dto.TransactionRequestDto;
 import com.nabil.udemy.ecommerce.orderservice.dto.TransactionResponseDto;
 import com.nabil.udemy.ecommerce.orderservice.dto.UserDto;

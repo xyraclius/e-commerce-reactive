@@ -21,11 +21,17 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class PurchaseOrder implements Serializable {
 
+    private static final long serialVersionUID = -7894099565254677562L;
+
     @Id
     @GeneratedValue
     private Integer id;
+
     private String productId;
+
     private Integer userId;
+
     private Integer amount;
+
     private OrderStatus status;
 }
